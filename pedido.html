@@ -98,19 +98,23 @@
     }
   </style>
 
-    <style>
-    html, body {
-      height: 100%;
+   <style>
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
     }
 
     body {
       background-image: url("nos.jpeg");
       background-repeat: no-repeat;
-      background-position: center;
-
-      /* 👇 AQUI você controla o tamanho */
-      background-size: 100% 140%;
+      background-position: center center;
+      background-size: cover; /* 🔑 responsivo */
     }
   </style>
 

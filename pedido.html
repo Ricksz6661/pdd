@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Algo muito Especial</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+
+    :root {
+      --c1: #BE6847;
+      --c2: #D6A07E;
+      --c3: #DC8069;
+      --c4: #B04231;
+      --c5: #BC664D;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--c2), var(--c3));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+    }
+
+    .card {
+      background: rgba(0,0,0,0.25);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 380px;
+      width: 90%;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      animation: fadeIn 1.2s ease;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    button {
+      padding: 14px 22px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin: 8px;
+      transition: 0.3s;
+    }
+
+    .ask {
+      background: linear-gradient(135deg, var(--c4), var(--c5));
+      color: #fff;
+      font-weight: bold;
+      width: 100%;
+    }
+
+    .choice {
+      background: #fff;
+      color: var(--c4);
+      font-weight: bold;
+    }
+
+    .choice:hover, .ask:hover {
+      transform: scale(1.05);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+    <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      background-image: url("nos.jpeg");
+      background-repeat: no-repeat;
+      background-position: center;
+
+      /* 👇 AQUI você controla o tamanho */
+      background-size: 100% 140%;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <audio id="music" loop>
+    <source src="Laufey - Valentine (Official Audio).mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="card" id="step1">
+    <img src="mãos.jpg" alt="Foto especial">
+    <h1>Tenho algo importante pra te falar… 💖</h1>
+    <p>
+      Desde o nosso começo, no dia 15 de agosto de 2024,
+minha vida ganhou um novo sentido.
+Cada conversa, cada resenha e cada mmento ao seu lado
+só me mostrou que era com você que eu queria ficar.
+
+A vida nos presenteou com o nosso maior presente, nosso filho Atlas
+a prova mais bonita de que o nosso amor é real, forte e eterno.
+
+Quero que você nunca se esqueça de onde viemos,
+do nosso começo desde que a gente era apenas namorados,
+porque é onde tudo se resume tudo o que somos hoje.
+
+Prometo te amar todos os dias,
+cuidar da nossa família
+e lembrar sempre que, independentemente do tempo,
+seremos eternos namorados.
+
+
+    </p>
+    <button class="ask" onclick="showQuestion()">CONTINUAR</button>
+  </div>
+
+  <div class="card hidden" id="step2">
+    <h1>QUER CASAR COMIGO?💍</h1>
+    <p>Prometo te amar todos os dias da minha vida.</p>
+    <button class="choice" onclick="finalAnswer()">SIM</button>
+    <button class="choice" onclick="finalAnswer()">CLARO</button>
+  </div>
+
+  <div class="card hidden" id="step3">
+    <img src="beijo.jpg" alt="Nossa foto juntos">
+    <h1>Eu te amo ❤️</h1>
+    <p>
+      Que esse seja apenas o começo da nossa história
+      cheia de amor, nossa familia e sonhos.
+    </p>
+  </div>
+
+  <script>
+    const music = document.getElementById("music");
+
+    function showQuestion() {
+      document.getElementById("step1").classList.add("hidden");
+      document.getElementById("step2").classList.remove("hidden");
+      music.play();
+    }
+
+    function finalAnswer() {
+      document.getElementById("step2").classList.add("hidden");
+      document.getElementById("step3").classList.remove("hidden");
+    }
+  </script>
+</body>
+</html>

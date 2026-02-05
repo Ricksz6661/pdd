@@ -2,13 +2,11 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Algo muito Especial</title>
+  <title>Algo Muito Especial 💍</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-
     :root {
-      --c1: #BE6847;
       --c2: #D6A07E;
       --c3: #DC8069;
       --c4: #B04231;
@@ -22,24 +20,30 @@
       font-family: 'Segoe UI', sans-serif;
     }
 
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+
     body {
-      min-height: 100vh;
-      background: linear-gradient(135deg, var(--c2), var(--c3));
+      background-image: url("nos.jpeg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
+      color: #ffffff;
       text-align: center;
     }
 
     .card {
-      background: rgba(0,0,0,0.25);
-      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,0.45);
       border-radius: 20px;
       padding: 30px;
       max-width: 380px;
       width: 90%;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
       animation: fadeIn 1.2s ease;
     }
 
@@ -49,18 +53,6 @@
       margin-bottom: 20px;
     }
 
-    h1 {
-      font-size: 1.6rem;
-      margin-bottom: 10px;
-      color: #fff;
-    }
-
-    p {
-      font-size: 1rem;
-      margin-bottom: 20px;
-      line-height: 1.4;
-    }
-
     button {
       padding: 14px 22px;
       border: none;
@@ -68,24 +60,8 @@
       font-size: 1rem;
       cursor: pointer;
       margin: 8px;
-      transition: 0.3s;
-    }
-
-    .ask {
       background: linear-gradient(135deg, var(--c4), var(--c5));
       color: #fff;
-      font-weight: bold;
-      width: 100%;
-    }
-
-    .choice {
-      background: #fff;
-      color: var(--c4);
-      font-weight: bold;
-    }
-
-    .choice:hover, .ask:hover {
-      transform: scale(1.05);
     }
 
     .hidden {
@@ -97,40 +73,18 @@
       to { opacity: 1; transform: translateY(0); }
     }
   </style>
-
-   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      width: 100%;
-      height: 100%;
-    }
-
-    body {
-      background-image: url("nos.jpeg");
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: cover; /* 🔑 responsivo */
-    }
-  </style>
-
 </head>
 
 <body>
 
-  <audio id="music" loop>
-    <source src="Laufey - Valentine (Official Audio).mp3" type="audio/mpeg">
-  </audio>
+<audio id="music" loop>
+  <source src="Laufey - Valentine (Official Audio).mp3" type="audio/mpeg">
+</audio>
 
-  <div class="card" id="step1">
-    <img src="mãos.jpg" alt="Foto especial">
-    <h1>Tenho algo importante pra te falar… 💖</h1>
-    <p>
-      Desde o nosso começo, no dia 15 de agosto de 2024,
+<div class="card" id="step1">
+  <img src="mãos.jpg">
+  <p>
+    Desde o nosso começo, no dia 15 de agosto de 2024,
 minha vida ganhou um novo sentido.
 Cada conversa, cada resenha e cada mmento ao seu lado
 só me mostrou que era com você que eu queria ficar.
@@ -146,41 +100,37 @@ Prometo te amar todos os dias,
 cuidar da nossa família
 e lembrar sempre que, independentemente do tempo,
 seremos eternos namorados.
+  </p>
+  <button onclick="showQuestion()">CONTINUAR</button>
+</div>
 
+<div class="card hidden" id="step2">
+  <h1>Quer casar comigo? 💍</h1>
+  <p> Prometo te amar todos os dias da minha vida. </p>
+  <button onclick="finalAnswer()">SIM</button>
+  <button onclick="finalAnswer()">CLARO</button>
+</div>
 
-    </p>
-    <button class="ask" onclick="showQuestion()">CONTINUAR</button>
-  </div>
+<div class="card hidden" id="step3">
+  <img src="beijo.jpg">
+  <h1>Eu te amo ❤️</h1>
+  <p> Que esse seja apenas o começo da nossa história cheia de amor, nossa familia e nossos sonhos. </p>
+</div>
 
-  <div class="card hidden" id="step2">
-    <h1>QUER CASAR COMIGO?💍</h1>
-    <p>Prometo te amar todos os dias da minha vida.</p>
-    <button class="choice" onclick="finalAnswer()">SIM</button>
-    <button class="choice" onclick="finalAnswer()">CLARO</button>
-  </div>
+<script>
+  const music = document.getElementById("music");
 
-  <div class="card hidden" id="step3">
-    <img src="beijo.jpg" alt="Nossa foto juntos">
-    <h1>Eu te amo ❤️</h1>
-    <p>
-      Que esse seja apenas o começo da nossa história
-      cheia de amor, nossa familia e sonhos.
-    </p>
-  </div>
+  function showQuestion() {
+    document.getElementById("step1").classList.add("hidden");
+    document.getElementById("step2").classList.remove("hidden");
+    music.play();
+  }
 
-  <script>
-    const music = document.getElementById("music");
+  function finalAnswer() {
+    document.getElementById("step2").classList.add("hidden");
+    document.getElementById("step3").classList.remove("hidden");
+  }
+</script>
 
-    function showQuestion() {
-      document.getElementById("step1").classList.add("hidden");
-      document.getElementById("step2").classList.remove("hidden");
-      music.play();
-    }
-
-    function finalAnswer() {
-      document.getElementById("step2").classList.add("hidden");
-      document.getElementById("step3").classList.remove("hidden");
-    }
-  </script>
 </body>
 </html>
